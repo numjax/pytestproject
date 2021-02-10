@@ -1,3 +1,7 @@
+'''
+퀵 정렬
+'''
+
 # 두 요소의 위치를 바꿔주는 helper function
 def swap_elements(my_list, index1, index2):
     # 코드를 작성하세요.
