@@ -1,15 +1,37 @@
 # - *- coding: utf- 8 - *-
 
 def max_profit_memo(price_list, count, cache):
-    pass
-    #한글
 
+    if count<2:
+        cache[count]= price_list[count]
+        return price_list[count]
+
+    if count in cache:
+        return cache[count]
+
+    mid = count//2
+
+    sum = []
+    sum.append(0)
+
+    for i in range(1, mid+1):
+        sum.append(max_profit_memo(price_list, count - i, cache) + max_profit_memo(price_list, i, cache))
+
+
+    if count <= len(price_list)-1 :
+        sum.append(price_list[count])
+
+    maxi = 0
+    for i in sum:
+        if i > maxi:
+            maxi = i
+
+    cache[count] = maxi
+
+    return cache[count]
 
 def max_profit(price_list, count):
     max_profit_cache = {}
-
-
-
 
     return max_profit_memo(price_list, count, max_profit_cache)
 
