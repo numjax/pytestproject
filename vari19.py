@@ -1,4 +1,33 @@
 # - *- coding: utf- 8 - *-
+import math
+
+def power(x, y):
+    # 코드를 작성하세요.
+    total = x
+
+    if y == 0:
+        return 1
+
+    if y == 1:
+        return x
+
+    if y%2 ==0:
+        #even
+        return power(x,y/2) * power (x,y/2)
+
+    else:
+        #odd
+        return power(x,y//2) * power (x,y//2) * x
+
+
+
+
+
+
+# 테스트
+print(power(3, 5))
+print(power(5, 6))
+print(power(7, 9))
 
 def select_stops(water_stops, capacity):
     # 코드를 작성하세요.
