@@ -1,17 +1,17 @@
 # - *- coding: utf- 8 - *-
 
 def sum_in_list(search_sum, sorted_list):
-    # 코드를 쓰세요
-
 
     #brute force
-    # for i in sorted_list:
-    #
-    #     for j in sorted_list[::-1]:
-    #         if i + j == search_sum :
-    #             return True
-    #
-    # return False
+    for i in sorted_list:
+
+        for j in sorted_list[::-1]:
+            if i + j == search_sum :
+                return True
+
+    return False
+
+print(sum_in_list(15, [1, 2, 5, 6, 7, 9, 11]))
 
 
     #binary search

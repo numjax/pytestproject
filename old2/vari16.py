@@ -16,6 +16,25 @@ def max_product(card_lists):
 test_cards1 = [[1, 6, 5], [4, 2, 3]]
 print(max_product(test_cards1))
 
+
+
+
+
+
+def linear_search(element, some_list):
+    for i in range(len(some_list)):
+        if element == some_list[i]:
+            return i
+
+    return None
+
+print(linear_search(2, [2, 3, 5, 7, 11]))
+
+
+
+
+
+
 test_cards2 = [[9, 7, 8], [9, 2, 3], [9, 8, 1], [2, 8, 3], [1, 3, 6], [7, 7, 4]]
 print(max_product(test_cards2))
 
