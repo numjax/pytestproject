@@ -1,3 +1,5 @@
+# - *- coding: utf- 8 - *-
+
 class GameChar:
 
     def  __init__(self, name, hp, atk_power):
