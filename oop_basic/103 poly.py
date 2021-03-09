@@ -77,6 +77,8 @@ email1.send_msg("def@gmail.com")
 #         self.content = content
 #         self.user_cellphone_num = user_cellphone_num
 #
+
+
 #     def print_message(self) -> None:
 #         print("SMS conent: \n {}".format(self.content))
 #
