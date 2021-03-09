@@ -2,9 +2,6 @@
 
 from abc import ABC, abstractmethod
 
-
-
-
 class Message(ABC):
     @abstractmethod
     def print_msg(self):
@@ -35,7 +32,7 @@ class SMS(Message):
         print("SMS txt:{}".format(self.txt))
 
     def send_msg(self, receiver):
-        print("Send SMS from to {}".format(receiver))
+        print("Send SMS to {}".format(receiver))
 
 
 
