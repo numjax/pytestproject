@@ -32,7 +32,7 @@ class SMS(Message):
         print("SMS txt:{}".format(self.txt))
 
     def send_msg(self, receiver):
-        print("Send SMS to {}".format(receiver))
+        print("Send SMS from to {}".format(receiver))
 
 
 
@@ -49,46 +49,34 @@ class Katok(Message):
 
 
 
-
 class MessageSender:
     def __init__(self):
         self.msgs = []
 
-    def add_msg(self, msg):
-        if isinstance(msg, Message):
-            self.msgs.append(msg)
-        else:
-            print("Wrong item!: {}".format(msg))
+    def add_msg(self, new_msg):
+        self.msgs.append(new_msg)
 
     def send_all(self):
         for i in self.msgs:
-            i.send_msg(i.receiver)
-
-
-
+            i.print_msg()
 
 email1 = Email("email body","abc@gmail.com")
 email1.receiver = "def@gmail.com"
-# email1.print_msg()
-# email1.send_msg(email1.receiver)
+email1.print_msg()
+email1.send_msg(email1.receiver)
 
 
 sms1 = SMS("sms txt","111-222-3333")
 sms1.receiver = "333-444-5555"
-# sms1.print_msg()
-# sms1.send_msg(email1.receiver)
+sms1.print_msg()
+sms1.send_msg(email1.receiver)
 
 
 katok1 = Katok("katok msg","John")
 katok1.receiver = "Tom"
-# katok1.print_msg()
-# katok1.send_msg(email1.receiver)
+katok1.print_msg()
+katok1.send_msg(email1.receiver)
 
-msg_sender1=MessageSender()
-msg_sender1.add_msg(email1)
-msg_sender1.add_msg(sms1)
-msg_sender1.add_msg(katok1)
-msg_sender1.add_msg("send_it")
+msg_sender1=MessageSender
+msg_sender1.add_msg("aa","bb")
 msg_sender1.send_all()
-
-
