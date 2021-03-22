@@ -32,7 +32,7 @@ class SMS(Message):
         print("SMS txt:{}".format(self.txt))
 
     def send_msg(self, receiver):
-        print("Send SMS from to {}".format(receiver))
+        print("Send SMS to {}".format(receiver))
 
 
 
@@ -49,34 +49,51 @@ class Katok(Message):
 
 
 
+
 class MessageSender:
     def __init__(self):
         self.msgs = []
 
-    def add_msg(self, new_msg):
-        self.msgs.append(new_msg)
+    def add_msg(self, msg):
+        if isinstance(msg, Message):
+            self.msgs.append(msg)
+        else:
+            print("Wrong item!: {}".format(msg))
 
     def send_all(self):
         for i in self.msgs:
-            i.print_msg()
+            i.send_msg(i.receiver)
+
+
+
 
 email1 = Email("email body","abc@gmail.com")
 email1.receiver = "def@gmail.com"
-email1.print_msg()
-email1.send_msg(email1.receiver)
+# email1.print_msg()
+# email1.send_msg(email1.receiver)
 
 
 sms1 = SMS("sms txt","111-222-3333")
 sms1.receiver = "333-444-5555"
-sms1.print_msg()
-sms1.send_msg(email1.receiver)
+# sms1.print_msg()
+# sms1.send_msg(email1.receiver)
 
 
 katok1 = Katok("katok msg","John")
 katok1.receiver = "Tom"
-katok1.print_msg()
-katok1.send_msg(email1.receiver)
+# katok1.print_msg()
+# katok1.send_msg(email1.receiver)
 
-msg_sender1=MessageSender
-msg_sender1.add_msg("aa","bb")
+
+#컨스트럭터에 아무값도 지정되어 있지 않더라도 아래와 같이 적으면 에러난다.
+#msg_sender1=MessageSender
+#반드시 괄호를 사용한다.
+
+msg_sender1=MessageSender()
+msg_sender1.add_msg(email1)
+msg_sender1.add_msg(sms1)
+msg_sender1.add_msg(katok1)
+msg_sender1.add_msg("send_it")
 msg_sender1.send_all()
+
+
